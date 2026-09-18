@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sunil Surendar K — Java Full Stack Developer portfolio">
+  <title>Sunil Surendar K | Java Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <a href="https://www.linkedin.com/in/sunil-surendar-k-113079333" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f6f2;
+      --surface: #ffffff;
+      --ink: #171717;
+      --muted: #6f6f6b;
+      --line: #deddd7;
+      --accent: #bf4d2e;
+      --accent-soft: #f3e3dc;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .site-nav {
+      align-items: center;
+      background: rgba(247, 246, 242, .92);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      padding: 1.15rem 5vw;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .logo {
+      color: var(--ink);
+      font-family: 'Space Mono', monospace;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.45rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .78rem;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent); }
+
+    .hero,
+    .container,
+    footer { max-width: var(--max-width); margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
+    .hero {
+      min-height: min(780px, calc(100vh - 65px));
+      padding-bottom: 7rem;
+      padding-top: 8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+      font-size: .74rem;
+      letter-spacing: .1em;
+      margin-bottom: 1.4rem;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      font-weight: 600;
+      letter-spacing: -.075em;
+      line-height: .95;
+      max-width: 850px;
+    }
+    .role {
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      font-size: .9rem;
+      margin: 1.7rem 0 1.4rem;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+    .btn-group { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+    .btn {
+      align-items: center;
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: .82rem;
+      font-weight: 600;
+      justify-content: center;
+      min-height: 44px;
+      padding: .7rem 1.2rem;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-outline { background: transparent; border-color: var(--line); color: var(--ink); }
+    .btn-outline:hover { background: var(--surface); border-color: var(--ink); color: var(--ink); }
+
+    section { border-top: 1px solid var(--line); padding: 5.5rem 0; scroll-margin-top: 74px; }
+    section h2 {
+      color: var(--ink);
+      font-family: 'Space Mono', monospace;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+    }
+    .section-intro { color: var(--muted); font-size: 1.25rem; max-width: 720px; }
+
+    .skills-grid {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .skill-card {
+      border-bottom: 1px solid var(--line);
+      padding: 1.35rem 1.5rem 1.35rem 0;
+    }
+    .skill-card:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 2rem; }
+    .skill-card:nth-child(even) { padding-left: 2rem; }
+    .skill-card:nth-last-child(-n+2) { border-bottom: 0; }
+    .skill-card h3 { font-size: 1rem; margin-bottom: .4rem; }
+    .skill-card p, .glass-box p, .glass-box li { color: var(--muted); font-size: .94rem; }
+
+    .card-list { display: grid; gap: 1rem; }
+    .glass-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 2rem;
+    }
+    .glass-box:hover { border-color: #bbb9b1; }
+    .glass-box h3 { font-size: 1.2rem; font-weight: 600; line-height: 1.35; }
+    .sub-title {
+      color: var(--accent);
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: .72rem;
+      line-height: 1.5;
+      margin: .55rem 0 1.2rem;
+    }
+    .glass-box p { margin-bottom: .72rem; }
+    .glass-box p:last-child { margin-bottom: 0; }
+    .glass-box ul { padding-left: 1.15rem; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.4rem; }
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+      font-size: .68rem;
+      padding: .35rem .6rem;
+    }
+    .edu-grid { display: grid; gap: 1rem; grid-template-columns: 1.4fr 1fr; }
+    .edu-grid hr { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0; }
+    .edu-grid h3:not(:first-child) { margin-top: 1.1rem; }
+    strong { color: var(--ink); font-weight: 600; }
+
+    .center-box { text-align: center; }
+    .center-box p { margin-left: auto; margin-right: auto; max-width: 600px; }
+    .center-box .btn-group { justify-content: center; }
+
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; padding-bottom: 2.5rem; padding-top: 2.5rem; }
+
+    .modal-overlay {
+      align-items: center;
+      background: rgba(23, 23, 23, .55);
+      display: flex;
+      inset: 0;
+      justify-content: center;
+      opacity: 0;
+      padding: 1.5rem;
+      pointer-events: none;
+      position: fixed;
+      transition: opacity .2s ease;
+      z-index: 20;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-content {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      max-height: 86vh;
+      max-width: 760px;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      width: 100%;
+    }
+    .close-modal {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1.6rem;
+      line-height: 1;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.3rem;
+    }
+    .close-modal:hover { color: var(--accent); }
+    .modal-content h2 { font-size: 1rem; margin-bottom: 1.5rem; padding-right: 2rem; }
+    .resume-preview-body h4 { border-bottom: 1px solid var(--line); font-size: .8rem; letter-spacing: .05em; margin: 1.6rem 0 .7rem; padding-bottom: .35rem; text-transform: uppercase; }
+    .resume-preview-body p, .resume-preview-body li { color: var(--muted); font-size: .9rem; margin-bottom: .45rem; }
+
+    /* Professional portfolio refinements */
+    :root {
+      --paper: #f4f7fb;
+      --surface: #ffffff;
+      --ink: #10233f;
+      --muted: #5d6b7e;
+      --line: #dbe3ed;
+      --accent: #1769aa;
+      --accent-soft: #e8f2fb;
+      --max-width: 1160px;
+    }
+    body { font-family: 'DM Sans', sans-serif; }
+    .site-nav { background: rgba(255,255,255,.96); box-shadow: 0 2px 18px rgba(16,35,63,.06); }
+    .logo { color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: .84rem; letter-spacing: .04em; }
+    .nav-links a { font-weight: 500; }
+    .hero { background: linear-gradient(135deg, rgba(232,242,251,.65), rgba(255,255,255,0) 60%); border-bottom: 1px solid var(--line); max-width: none; padding-left: max(2rem, calc((100vw - var(--max-width)) / 2 + 2rem)); padding-right: max(2rem, calc((100vw - var(--max-width)) / 2 + 2rem)); }
+    .eyebrow, .sub-title { color: var(--accent); }
+    .hero h1 { color: var(--ink); font-weight: 700; letter-spacing: -.06em; }
+    .role { color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 600; }
+    .btn { background: var(--accent); border-color: var(--accent); border-radius: 4px; box-shadow: 0 5px 14px rgba(23,105,170,.16); }
+    .btn:hover { background: #0f4f82; border-color: #0f4f82; }
+    .btn-outline { background: transparent; border-color: #aebdcd; box-shadow: none; color: var(--ink); }
+    .btn-outline:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    section h2 { color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: .82rem; letter-spacing: .04em; }
+    .section-intro { color: var(--ink); font-size: 1.18rem; line-height: 1.8; }
+    .skill-card h3, .glass-box h3 { color: var(--ink); }
+    .glass-box { border-radius: 6px; box-shadow: 0 8px 25px rgba(16,35,63,.05); }
+    .glass-box:hover { border-color: #b6c9dc; box-shadow: 0 12px 30px rgba(16,35,63,.08); }
+    .tag { border-radius: 3px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+    .modal-content { border-radius: 6px; box-shadow: 0 20px 55px rgba(16,35,63,.2); }
+
+    /* Enhanced mobile experience */
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 68px; }
+
+      body {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .site-nav {
+        min-height: 64px;
+        padding: .8rem 1rem;
+        position: sticky;
+      }
+
+      .logo {
+        font-size: .78rem;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: .35rem;
+        max-width: 72vw;
+        overflow-x: auto;
+        padding: .15rem 0 .3rem;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav-links::-webkit-scrollbar { display: none; }
+
+      .nav-links a {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        display: block;
+        font-size: .7rem;
+        padding: .38rem .65rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a.active {
+        background: var(--accent-soft);
+        border-color: #b9d4e9;
+      }
+
+      .hero, .container, footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .hero {
+        min-height: calc(100svh - 64px);
+        padding-bottom: 4rem;
+        padding-top: 4.5rem;
+        justify-content: center;
+      }
+
+      .eyebrow {
+        font-size: .67rem;
+        letter-spacing: .08em;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.1rem, 16vw, 5rem);
+        line-height: .91;
+        letter-spacing: -.07em;
+      }
+
+      .role {
+        font-size: .95rem;
+        line-height: 1.45;
+        margin: 1.35rem 0 1rem;
+      }
+
+      .hero > p:not(.eyebrow):not(.role) {
+        font-size: .94rem;
+        line-height: 1.7;
+      }
+
+      .btn-group {
+        gap: .65rem;
+        margin-top: 1.5rem;
+        width: 100%;
+      }
+
+      .btn {
+        flex: 0 0 auto;
+        min-height: 40px;
+        padding: .55rem .8rem;
+        font-size: .72rem;
+        text-align: center;
+      }
+
+      section {
+        padding: 3.5rem 0;
+        scroll-margin-top: 70px;
+      }
+
+      section h2 {
+        font-size: .75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-intro {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .skills-grid,
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-card,
+      .skill-card:nth-child(odd),
+      .skill-card:nth-child(even) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 1.1rem 0;
+      }
+
+      .skill-card:last-child {
+        border-bottom: 0;
+      }
+
+      .skill-card h3 {
+        font-size: .98rem;
+        margin-bottom: .35rem;
+      }
+
+      .skill-card p,
+      .glass-box p,
+      .glass-box li {
+        font-size: .88rem;
+      }
+
+      .card-list {
+        gap: .85rem;
+      }
+
+      .glass-box {
+        border-radius: 8px;
+        padding: 1.25rem;
+      }
+
+      .glass-box h3 {
+        font-size: 1.05rem;
+      }
+
+      .sub-title {
+        font-size: .65rem;
+        margin: .5rem 0 1rem;
+      }
+
+      .tags {
+        gap: .35rem;
+        margin-top: 1.1rem;
+      }
+
+      .tag {
+        font-size: .64rem;
+        padding: .32rem .5rem;
+      }
+
+      .edu-grid hr {
+        margin: 1.15rem 0;
+      }
+
+      .center-box .btn-group {
+        flex-direction: column;
+      }
+
+      .center-box .btn {
+        width: auto;
+        min-height: 40px;
+      }
+
+      .modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+      }
+
+      .modal-content {
+        border-radius: 16px 16px 0 0;
+        max-height: 88svh;
+        padding: 2.5rem 1.15rem 1.5rem;
+      }
+
+      .close-modal {
+        font-size: 1.8rem;
+        right: 1rem;
+        top: .9rem;
+      }
+
+      .modal-content h2 {
+        font-size: .9rem;
+      }
+
+      .resume-preview-body p,
+      .resume-preview-body li {
+        font-size: .84rem;
+      }
+
+      footer {
+        font-size: .7rem;
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .55rem;
+      }
+
+      .nav-links {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-bottom: 4.5rem;
+        padding-top: 4rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 18vw, 4.4rem);
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: auto;
+        min-height: 40px;
+        padding: .55rem .8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="logo" href="#top">SSK / 2026</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <p class="eyebrow">Java Full Stack Developer</p>
+    <h1>Sunil<br>Surendar K</h1>
+    <p class="role">Building practical software with thoughtful engineering.</p>
+    <p>Electronics and Communication Engineering graduate with a strong foundation in Java, Object-Oriented Programming, JDBC, MySQL, REST APIs, Spring Boot, JavaScript, ReactJS, HTML, CSS, and Bootstrap. I enjoy building database-driven applications, backend business logic, APIs, responsive interfaces, and AI-powered applications.</p>
+    <div class="btn-group">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2>01 / Professional Summary</h2>
+      <p class="section-intro">Java Full Stack Developer with hands-on experience developing database-driven applications, implementing backend business logic, integrating APIs, building responsive interfaces, debugging applications, and working in Agile-oriented environments. Experienced with AI-powered applications using Python, Flask, RoBERTa, NLP, OCR, speech-to-text, and SQLite3.</p>
+    </section>
+
+    <section id="skills">
+      <h2>02 / Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>Programming</h3><p>Java, C, Object-Oriented Programming, Collections, Exception Handling</p></div>
+        <div class="skill-card"><h3>Backend</h3><p>JDBC, Spring Boot, REST APIs, Node.js, Express.js</p></div>
+        <div class="skill-card"><h3>Frontend</h3><p>HTML5, CSS3, JavaScript, Bootstrap, ReactJS, React Native</p></div>
+        <div class="skill-card"><h3>Databases</h3><p>MySQL, SQLite3</p></div>
+        <div class="skill-card"><h3>AI &amp; Data</h3><p>Python, RoBERTa, NLP, Tesseract OCR, Google Speech-to-Text, Cosine Similarity</p></div>
+        <div class="skill-card"><h3>Tools</h3><p>Git, GitHub, VS Code, Eclipse</p></div>
+        <div class="skill-card"><h3>Core CS</h3><p>Data Structures &amp; Algorithms, DBMS, Object-Oriented Programming, API Fundamentals</p></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>03 / Professional Experience</h2>
+      <div class="card-list">
+        <div class="glass-box">
+          <h3>Full Stack Developer Intern</h3>
+          <span class="sub-title">EduSphere Software Training and Development Institute Pvt. Ltd.</span>
+          <p>• Developed a Cricket Tournament Management application using the MERN stack, including SQLite3, Express.js, React, and Node.js.</p>
+          <p>• Implemented backend business logic, database integration, data handling, and application components for core tournament workflows.</p>
+          <p>• Built frontend components using HTML, CSS, JavaScript, Bootstrap, and React while integrating frontend and backend functionality.</p>
+          <p>• Debugged application issues, improved stability, and supported performance improvements through iterative testing.</p>
+          <p>• Worked in an Agile-oriented environment with task breakdown, iterative development, and continuous improvements.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>04 / Featured Projects</h2>
+      <div class="card-list">
+        <div class="glass-box">
+          <h3>Smart Governance – RoBERTa-Based Petition Analysis &amp; Grievance Tracking</h3>
+          <span class="sub-title">2026 · Python, RoBERTa, Flask, React Native, SQLite3, Tesseract OCR, Google Speech-to-Text</span>
+          <p>• Designed and developed an AI-powered e-governance platform for automated petition classification, grievance tracking, and multi-department routing.</p>
+          <p>• Integrated a fine-tuned RoBERTa NLP model to classify petitions into departments including Water, Roads, and Health.</p>
+          <p>• Implemented multimodal input for typed text, scanned/handwritten documents using Tesseract OCR, and voice input using Google Speech-to-Text API.</p>
+          <p>• Implemented cosine similarity-based duplicate detection and sentiment-based urgency scoring to identify critical cases and support escalation reminders.</p>
+          <p>• Developed a citizen-facing tracking portal with real-time email status updates and an administrative analytics dashboard for department KPIs and grievance trends.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">RoBERTa</span><span class="tag">Flask</span><span class="tag">React Native</span><span class="tag">SQLite3</span><span class="tag">NLP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>05 / Education &amp; Certifications</h2>
+      <div class="edu-grid">
+        <div class="glass-box">
+          <h3>Bachelor of Engineering – Electronics and Communication Engineering</h3>
+          <span class="sub-title">2026 · Mailam Engineering College, Mailam</span>
+          <p><strong>CGPA: 8.2 / 10</strong></p>
+          <hr>
+          <h3>Higher Secondary Certificate (HSC)</h3><p>2022 · 79%</p>
+          <h3>Secondary School Leaving Certificate (SSLC)</h3><p>2020 · 94.6%</p>
+        </div>
+        <div class="glass-box">
+          <h3>Certifications</h3>
+          <p>• Full Stack Web Development – EduSphere Solutions</p>
+          <p>• Diploma in Programming C</p>
+          <p>• SQL – Wipro TalentNext Program</p>
+          <p>• Java – Anudip Foundation</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <h2>06 / Resume &amp; CV</h2>
+      <div class="glass-box center-box">
+        <p>Preview the key details from my professional resume or download the official PDF.</p>
+        <div class="btn-group">
+          <button class="btn" onclick="openResumeModal()">Preview Resume Online</button>
+          <a href="Sunil_Surendar_K_Resume.pdf" download="Sunil_Surendar_K_Resume.pdf" class="btn btn-outline">Download PDF Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>07 / Get in Touch</h2>
+      <div class="glass-box center-box">
+        <p>I'm currently looking for opportunities in Java Full Stack Development and software development.</p>
+        <div class="btn-group">
+  <a href="mailto:surendar47k@gmail.com" class="btn">Email Me</a>
+  <a href="tel:+918667767692" class="btn btn-outline">Call Me</a>
+  <a href="https://www.linkedin.com/in/sunil-surendar-k-113079333" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn</a>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="resume-modal" class="modal-overlay" onclick="closeResumeModalOnOutside(event)">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeResumeModal()" aria-label="Close resume preview">&times;</button>
+      <h2>Sunil Surendar K — Resume Preview</h2>
+      <div class="resume-preview-body">
+        <p><strong>Phone:</strong> +91 8667767692 | <strong>Email:</strong> surendar47k@gmail.com</p>
+        <h4>Professional Summary</h4>
+        <p>Java Full Stack Developer with a strong foundation in Java, Object-Oriented Programming, JDBC, MySQL, REST APIs, Spring Boot, JavaScript, ReactJS, HTML, CSS, and Bootstrap. Hands-on experience developing database-driven applications, backend business logic, APIs, responsive interfaces, and AI-powered applications.</p>
+        <h4>Technical Skills</h4>
+        <p><strong>Programming:</strong> Java, C, OOP, Collections, Exception Handling</p>
+        <p><strong>Backend:</strong> JDBC, Spring Boot, REST APIs, Node.js, Express.js</p>
+        <p><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap, ReactJS, React Native</p>
+        <p><strong>Databases:</strong> MySQL, SQLite3</p>
+        <p><strong>AI &amp; Data:</strong> Python, RoBERTa, NLP, Tesseract OCR, Google Speech-to-Text, Cosine Similarity</p>
+        <h4>Experience</h4>
+        <p><strong>Full Stack Developer Intern</strong> — EduSphere Software Training and Development Institute Pvt. Ltd.</p>
+        <ul><li>Developed a Cricket Tournament Management application using MERN stack technologies.</li><li>Implemented backend business logic, database integration, frontend components, and debugging.</li></ul>
+        <h4>Project</h4>
+        <p><strong>Smart Governance – RoBERTa-Based Petition Analysis &amp; Grievance Tracking</strong></p>
+        <p>AI-powered e-governance platform using Python, RoBERTa, Flask, React Native, SQLite3, Tesseract OCR, and Google Speech-to-Text.</p>
+        <h4>Education</h4>
+        <p>B.E. Electronics and Communication Engineering — Mailam Engineering College, Mailam | CGPA: 8.2 / 10</p>
+        <div class="btn-group" style="justify-content:center; margin-top:2rem"><a href="Sunil_Surendar_K_resume.pdf" download="Sunil_Surendar_K_resume.pdf" class="btn">Download PDF Resume</a></div>
+      </div>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Sunil Surendar K. All rights reserved.</p></footer>
+
+  <script>
+    const sections = document.querySelectorAll('section, .hero');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (pageYOffset >= section.offsetTop - 180) current = section.id;
+      });
+      navItems.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+      });
+    });
+
+    function openResumeModal() {
+      document.getElementById('resume-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resume-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeResumeModalOnOutside(event) {
+      if (event.target === document.getElementById('resume-modal')) closeResumeModal();
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeResumeModal();
+    });
+  </script>
+</body>
+</html>
